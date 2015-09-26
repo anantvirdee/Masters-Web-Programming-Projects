@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Student Name:Guranant Singh Virdee   -->
+<!-- URL:http://omega.uta.edu/~gsv1599/project3/yelp.html  -->
+<html lang="en">
+  <head>
+    <title>Web Mashup: Display Best Restaurants on a Map</title>
+    <meta charset="utf-8"/>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="yelp.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </head>
+  <body onload="initialize();">
+    <form onsubmit="sendRequest(); return false">
+       <center><label>Search Terms: <input type="text" id="search"/></label>
+       <input type="submit" value="Find"/>
+	   </center>
+    </form>
+	</br></br>
+	<table class="table table-hover" style="width:740px;float:left;">
+		<tbody id="output">&nbsp;</tbody>
+	</table>
+	<div id="map-canvas" style="height:600px;width:500px;float:right;">Map Goes here</div>
+  
+  </body>
+</html>
