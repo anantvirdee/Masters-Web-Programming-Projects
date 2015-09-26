@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+  Student Name: Guranant Singh Virdee
+  URL: http://omega.uta.edu/~gsv1599/project2/movies.html?
+-->
+<html lang="en">
+  <head>
+    <title>Display Movie Information</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="movies.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<style>
+		div:hover {
+			background-color: #f5f5f5;;
+		}
+	</style>
+  </head>
+  <body>
+    <center>
+	<form onsubmit="sendRequest(); showTable();return false">
+		
+       Movie title: 
+	   <input type="text" id="form-input"/>
+	   <input type="submit" value="Submit"/>
+       
+	   <!--<input id="searchButton" type="button" onclick="sendRequest(); showTable();" value="Search"/>
+		-->
+	</form></center>
+	</br></br>
+	
+	<img id="poster" class="col-md-3"></img>
+	<div id="summary" class="col-md-3"></div>
+	<div id="display" class="col-md-3"></div>
+	<div id="genre" class="col-md-3"></div>
+	
+	<table id="resulttable" class="table table-hover" style="visibility: hidden;">
+		<thead>
+			<th>SNo.</th>
+			<th>Movie name</th>
+			<th>Release Date</th>
+		</thead>
+		<tbody id="output">
+		</tbody>
+	</table>
+	
+  </body>
+</html>
