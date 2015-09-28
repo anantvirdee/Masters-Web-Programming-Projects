@@ -10,7 +10,7 @@ startGame();
 }
 function showTable()
 {
-		document.getElementById('resulttable').style.visibility="visible";
+		document.getElementById('tablehead').style.visibility="visible";
 		
 }
 function startGame () 
@@ -20,7 +20,7 @@ function startGame ()
    var txt="";
    var ID=0;
    var json={};
-   document.getElementById("resulttable").innerHTML="";
+   //document.getElementById("resulttable").innerHTML="";
                  
    xhr.open("GET", "proxy.php?method=/3/search/movie&query=" + query);
    xhr.setRequestHeader("Accept","application/json");
@@ -29,6 +29,7 @@ function startGame ()
 	   {
           json = JSON.parse(this.responseText);
 		  console.log(json);
+		  
           var str = JSON.stringify(json,undefined,2);
 		  for(i=0;i<json.results.length;i++)
 		  {
@@ -36,15 +37,14 @@ function startGame ()
 		  var sNo =document.createElement("td");
 		  var movieName=document.createElement("td");
 		  var releaseDate=document.createElement("td");
-		  
-		  document.getElementById("output").appendChild(node);
-		  node.setAttribute("id","Position"+i);
-		  document.getElementById("Position"+i).removeAttribute("onclick");
-		  document.getElementById("Position"+i).innerHTML="";
+		 
+          node.setAttribute("id","Position"+i);
+		 
+		  //document.getElementById("Position"+i).innerHTML="";
 		  //node.setAttribute("class","row");
-		  document.getElementById("Position"+i).appendChild(sNo);
-		  document.getElementById("Position"+i).appendChild(movieName);		  
-		  document.getElementById("Position"+i).appendChild(releaseDate);
+		  //document.getElementById("Position"+i).appendChild(sNo);
+		  //document.getElementById("Position"+i).appendChild(movieName);		  
+		  //document.getElementById("Position"+i).appendChild(releaseDate);
 		  //sNo.setAttribute("class","col-md-4");
 		  //movieName.setAttribute("class","col-md-4");
 		  //releaseDate.setAttribute("class","col-md-4");
@@ -52,10 +52,25 @@ function startGame ()
 		  movieName.innerHTML=json.results[i].title;
 		  releaseDate.innerHTML=json.results[i].release_date;
 		  //node.innerHTML=json.results[i].title +"\t\t"+ json.results[i].release_date;
-          
+          var out= document.getElementById("output");
+		 // if(out!=null){
+		//	out.appendChild(node);  
+		 // }
+		 
 		  ID=(json.results[i].id);
+		  //var k = document.getElementById("Position"+i);
+		  //if(k!=null){
+			  node.removeAttribute("onclick");
+			  node.innerHTML="";
+			  node.appendChild(sNo);
+			  node.appendChild(movieName);
+			  node.appendChild(releaseDate);
+			  node.setAttribute("onclick","getMovieInfo("+ID+")");
+		  //}
+		  console.log(out);
+		  out.appendChild(node);
 		  console.log(ID);		  
-		  document.getElementById("Position"+i).setAttribute("onclick","getMovieInfo("+ID+")"); 
+		  //document.getElementById("Position"+i).setAttribute("onclick","getMovieInfo("+ID+")"); 
 		  console.log(node);
 		  }
 			   
